@@ -23,6 +23,9 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 import us.monoid.json.JSONArray;
 import us.monoid.json.JSONException;
@@ -696,7 +699,7 @@ public class GlobalController implements Lifecycle, ComponentController, EventDe
 
         if (options_.startLocalControllers()) {
             Logger.getLogger("log").logln(USR.STDOUT, leadin() + "Starting Local Controllers");
-            startLocalControllers();
+            startAllLocalControllers();
         }
 
         Logger.getLogger("log").logln(USR.STDOUT, leadin() + "Checking existence of local Controllers");
@@ -2791,55 +2794,75 @@ public class GlobalController implements Lifecycle, ComponentController, EventDe
         return null;
     }
 
-    private void startLocalControllers() {
+
+    private void startAllLocalControllers() {
+        ExecutorService executor = Executors.newCachedThreadPool();
         Iterator<LocalControllerInfo> i = options_.getControllersIterator();
-        Process child = null;
 
         while (i.hasNext()) {
-            LocalControllerInfo lh = i.next();
+            executor.submit(() -> {
+                startLocalController(i.next());
+            });
+        }
 
-            preLocalControllerStartHook(lh);
+        try {
+            Thread.sleep(15000);
+            executor.shutdown();
+            executor.awaitTermination(1, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            Logger.getLogger("log").logln(USR.ERROR, "Initialization of Local Controllers Interrupted");
+        } finally {
+            if (!executor.isTerminated()) {
+                Logger.getLogger("log").logln(USR.ERROR, "Cancelling unfinished initializations");
+            }
+            executor.shutdownNow();
+            Logger.getLogger("log").logln(USR.ERROR, "Shutdown finished");
+        }
+    }   
 
-            // try and see if we can talk to an exisiting LocalController
-            boolean connected = false;
+    private void startLocalController(LocalControllerInfo lh) {
+        Process child = null;
+        preLocalControllerStartHook(lh);
+
+        // try and see if we can talk to an exisiting LocalController
+        boolean connected = false;
+        try {
+            // see if the LocalController already exists
+            Logger.getLogger("log").logln(USR.STDOUT, leadin() + " does LocalController " + lh + " already exist");
+            LocalControllerInteractor inter = new LocalControllerInteractor(lh);
+            connected = inter.checkLocalController(myHostInfo_);
+
+        } catch (IOException iex) {
+            Logger.getLogger("log").logln(USR.ERROR, leadin() + " cannot connect to exisiting localController " + lh);
+            connected = false;
+        } catch (JSONException jex) {
+            Logger.getLogger("log").logln(USR.ERROR, leadin() + " cannot connect to exisiting localController " + lh);
+            connected = false;
+        }
+
+
+        // Can't see it, so start a new one
+        if (!connected) {
+
+            String [] cmd = LocalControllerInitiator.localControllerStartCommand(lh, options_);
             try {
-                // see if the LocalController already exists
-                Logger.getLogger("log").logln(USR.STDOUT, leadin() + " does LocalController " + lh + " already exist");
-                LocalControllerInteractor inter = new LocalControllerInteractor(lh);
-                connected = inter.checkLocalController(myHostInfo_);
-
-            } catch (IOException iex) {
-                Logger.getLogger("log").logln(USR.ERROR, leadin() + " cannot connect to exisiting localController " + lh);
-                connected = false;
-            } catch (JSONException jex) {
-                Logger.getLogger("log").logln(USR.ERROR, leadin() + " cannot connect to exisiting localController " + lh);
-                connected = false;
+                Logger.getLogger("log").logln(USR.STDOUT, leadin() + "Starting process " + Arrays.asList(cmd));
+                child = new ProcessBuilder(cmd).start();
+            } catch (IOException e) {
+                Logger.getLogger("log").logln(USR.ERROR, leadin() + "Unable to execute remote command " + Arrays.asList(cmd));
+                Logger.getLogger("log").logln(USR.ERROR, e.getMessage());
+                System.exit(-1);
             }
 
+            String procName = lh.getName() + ":" + lh.getPort();
+            childNames_.add(procName);
+            childProcessWrappers_.put(procName, new ProcessWrapper(child, procName));
 
-            // Can't see it, so start a new one
-            if (!connected) {
-
-                String [] cmd = LocalControllerInitiator.localControllerStartCommand(lh, options_);
-                try {
-                    Logger.getLogger("log").logln(USR.STDOUT, leadin() + "Starting process " + Arrays.asList(cmd));
-                    child = new ProcessBuilder(cmd).start();
-                } catch (IOException e) {
-                    Logger.getLogger("log").logln(USR.ERROR, leadin() + "Unable to execute remote command " + Arrays.asList(cmd));
-                    Logger.getLogger("log").logln(USR.ERROR, e.getMessage());
-                    System.exit(-1);
-                }
-
-                String procName = lh.getName() + ":" + lh.getPort();
-                childNames_.add(procName);
-                childProcessWrappers_.put(procName, new ProcessWrapper(child, procName));
-
-                try {
-                    Thread.sleep(15000); // Simple wait is to ensure controllers start up
-                } catch (java.lang.InterruptedException e) {
-                    Logger.getLogger("log").logln(USR.ERROR, leadin() + "startLocalControllers Got interrupt!");
-                    System.exit(-1);
-                }
+            try {
+                Thread.sleep(100); // Simple wait is to ensure controllers start up
+            } catch (java.lang.InterruptedException e) {
+                Logger.getLogger("log").logln(USR.ERROR, leadin() + "startLocalControllers Got interrupt!");
+                System.exit(-1);
             }
         }
     }
