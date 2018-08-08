@@ -1,0 +1,51 @@
+<SimOptions>
+  <GlobalController>
+     <Port>8888</Port>
+     <StartLocalControllers>true</StartLocalControllers>
+     <ConnectedNetwork>false</ConnectedNetwork>
+
+     <PlacementEngineClass>usr.globalcontroller.LeastBusyPlacement</PlacementEngineClass>
+
+     <!-- <VisualizationClass>usr.globalcontroller.visualization.ColouredNetworkVisualization</VisualizationClass> -->
+     <VisualizationClass>usr.globalcontroller.visualization.ColouredNetworkAndApplicationVisualization</VisualizationClass>
+
+     <Monitoring>
+       <LatticeMonitoring>true</LatticeMonitoring>
+       <Consumer>
+         <!-- <Name>usr.globalcontroller.NetIFStatsCumulativeReporter</Name> -->
+         <Name>usr.globalcontroller.NetIFStatsReporter</Name>
+       </Consumer>
+       <Consumer>
+         <Name>usr.globalcontroller.RouterAppsReporter</Name>
+       </Consumer>
+     </Monitoring>
+  </GlobalController>
+
+  <LocalController>
+     <Name>localhost</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+  </LocalController>
+
+  <LocalController>
+     <Name>10.16.0.172</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+     <RemoteLoginUser>local</RemoteLoginUser>
+      <RemoteStartController>cd Downloads/vlsp ; export CLASSPATH=.:/home/local/Downloads/vlsp/libs/aggregator-0.3.jar:/home/local/Downloads/vlsp/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/local/Downloads/vlsp/libs/IKMS-client.jar:/home/local/Downloads/vlsp/libs/Logger-0.1.0.jar:/home/local/Downloads/vlsp/libs/monitoring-0.7.1.jar:/home/local/Downloads/vlsp/libs/rabbitmq-client.jar:/home/local/Downloads/vlsp/libs/restconsole-0.1.0.jar:/home/local/Downloads/vlsp/libs/resty-0.3.1.jar:/home/local/Downloads/vlsp/libs/rgclibsource.jar:/home/local/Downloads/vlsp/libs/rgcmathfunctions.jar:/home/local/Downloads/vlsp/libs/rgcprobdistributions.jar:/home/local/Downloads/vlsp/libs/rgcxmlparse.jar:/home/local/Downloads/vlsp/libs/simple-4.1.21.jar:/home/local/Downloads/vlsp/libs/timeindex-20160723.jar:; java usr.localcontroller.LocalController</RemoteStartController>
+  </LocalController>
+
+  <EventEngine>
+     <Name>Empty</Name>
+     <EndTime>86400</EndTime> <!-- 86400 seconds == 1 day -->
+  </EventEngine>
+
+  <RouterOptions>
+      scripts/routeroptions-noap.xml
+  </RouterOptions>
+
+</SimOptions>

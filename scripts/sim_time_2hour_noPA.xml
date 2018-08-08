@@ -1,0 +1,23 @@
+<SimOptions>
+  <GlobalController>
+     <Port>8888</Port>
+     <StartLocalControllers>true</StartLocalControllers>
+     <ConnectedNetwork>true</ConnectedNetwork>
+     <Simulation>true</Simulation>
+  </GlobalController>
+  <EventEngine>
+     <Name>Probabilistic</Name>
+     <EndTime>7200</EndTime>
+     <Parameters>scripts/probdistslow_noPA.xml</Parameters>
+  </EventEngine>
+  <RouterOptions>
+      scripts/routersim_time.xml
+  </RouterOptions>
+    <Output>
+        <File>summary.out</File>
+        <When>Interval</When>
+        <Time>10000</Time>
+        <Type>Summary</Type>
+    </Output>
+
+</SimOptions>
