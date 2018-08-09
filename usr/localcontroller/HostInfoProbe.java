@@ -20,7 +20,7 @@ import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.lang.Float;
 import java.lang.Long;
-import java.lang.Int;
+import java.lang.Integer;
 
 import eu.reservoir.monitoring.appl.datarate.EveryNSeconds;
 import eu.reservoir.monitoring.core.DefaultProbeAttribute;
@@ -680,7 +680,7 @@ public class HostInfoProbe extends LocalControllerProbe implements Probe {
 
         // cvt to Integer
         Scanner sc = new Scanner(numStr);
-        int i = Int.parseInt(sc.next());
+        int i = Integer.parseInt(sc.next());
 
         return i;
     }
