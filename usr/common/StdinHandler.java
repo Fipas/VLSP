@@ -20,10 +20,10 @@ public class StdinHandler implements Runnable {
     public StdinHandler(Lifecycle lf) {
         controller = lf;
 
-        FileInputStream fis = new FileInputStream(FileDescriptor.in);
-        channel = fis.getChannel();
+        //FileInputStream fis = new FileInputStream(FileDescriptor.in);
+        //channel = fis.getChannel();
 
-        //channel2 = Channels.newChannel(System.in);
+        channel = Channels.newChannel(System.in);
 
         // Execute the listener
         thread = new Thread(this);
