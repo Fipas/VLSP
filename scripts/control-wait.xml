@@ -30,13 +30,53 @@
   </LocalController>
 
   <LocalController>
-     <Name>10.16.0.172</Name>
+     <Name>10.16.0.123</Name>
      <Port>10000</Port>
      <LowPort>15001</LowPort>
      <HighPort>16000</HighPort>
      <MaxRouters>100</MaxRouters>
-     <RemoteLoginUser>local</RemoteLoginUser>
-      <RemoteStartController>cd Downloads/vlsp ; export CLASSPATH=.:/home/local/Downloads/vlsp/libs/aggregator-0.3.jar:/home/local/Downloads/vlsp/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/local/Downloads/vlsp/libs/IKMS-client.jar:/home/local/Downloads/vlsp/libs/Logger-0.1.0.jar:/home/local/Downloads/vlsp/libs/monitoring-0.7.1.jar:/home/local/Downloads/vlsp/libs/rabbitmq-client.jar:/home/local/Downloads/vlsp/libs/restconsole-0.1.0.jar:/home/local/Downloads/vlsp/libs/resty-0.3.1.jar:/home/local/Downloads/vlsp/libs/rgclibsource.jar:/home/local/Downloads/vlsp/libs/rgcmathfunctions.jar:/home/local/Downloads/vlsp/libs/rgcprobdistributions.jar:/home/local/Downloads/vlsp/libs/rgcxmlparse.jar:/home/local/Downloads/vlsp/libs/simple-4.1.21.jar:/home/local/Downloads/vlsp/libs/timeindex-20160723.jar:; java usr.localcontroller.LocalController</RemoteStartController>
+     <RemoteLoginUser>vlsp-vm1</RemoteLoginUser>
+      <RemoteStartController>cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController</RemoteStartController>
+  </LocalController>
+
+  <LocalController>
+     <Name>10.16.0.146</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+     <RemoteLoginUser>vlsp-vm1</RemoteLoginUser>
+      RemoteStartController>cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController</RemoteStartController>
+  </LocalController>
+
+  <LocalController>
+     <Name>10.16.0.187</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+     <RemoteLoginUser>vlsp-vm1</RemoteLoginUser>
+      RemoteStartController>cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController</RemoteStartController>
+  </LocalController>
+
+  <LocalController>
+     <Name>10.16.0.161</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+     <RemoteLoginUser>vlsp-vm1</RemoteLoginUser>
+      RemoteStartController>cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController</RemoteStartController>
+  </LocalController>
+
+  <LocalController>
+     <Name>10.16.0.181</Name>
+     <Port>10000</Port>
+     <LowPort>15001</LowPort>
+     <HighPort>16000</HighPort>
+     <MaxRouters>100</MaxRouters>
+     <RemoteLoginUser>vlsp-vm1</RemoteLoginUser>
+      RemoteStartController>cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController</RemoteStartController>
   </LocalController>
 
   <EventEngine>

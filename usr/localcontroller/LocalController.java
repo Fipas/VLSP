@@ -264,8 +264,9 @@ public class LocalController implements Lifecycle, ComponentController {
 
             if (console_ != null) {
                 console_.stop();
+            }
         } catch (Exception e) {
-            
+
         }
 
         if (stdin != null) {
