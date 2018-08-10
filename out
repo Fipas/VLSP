@@ -1,0 +1,143 @@
+PlacementEngineClass = usr.globalcontroller.LeastBusyPlacement
+VisualizationClass = usr.globalcontroller.visualization.ColouredNetworkAndApplicationVisualization
+Consumers = {NetIFStatsReporter=usr.globalcontroller.NetIFStatsReporter, RouterAppsReporter=usr.globalcontroller.RouterAppsReporter}
+check addresses: name:eth0 (eth0)
+check addresses:	 /fe80:0:0:0:216:3eff:feca:b679%eth0 ACCEPT fe80:0:0:0:216:3eff:feca:b679%eth0
+check addresses:	 /fd68:1845:8235:10:216:3eff:feca:b679%eth0 ACCEPT fd68:1845:8235:10:216:3eff:feca:b679%eth0
+check addresses:	 /10.16.0.124 ACCEPT 10.16.0.124
+
+check addresses: name:lo (lo)
+ LOOPBACK
+10.16.0.124:8888 GC: Starting monitoring
+10.16.0.124:8888 GC: Added reporter: NetIFStatsReporter -> usr.globalcontroller.NetIFStatsReporter@5b2133b1
+10.16.0.124:8888 GC: Added reporter: RouterAppsReporter -> usr.globalcontroller.RouterAppsReporter@72ea2f77
+10.16.0.124:8888 GC: Starting monitoring on /10.16.0.124:8997
+10.16.0.124:8888 GC:  data source: 10.16.0.124:8888.dataSource on /10.16.0.124:8998
+Probe: ID = 273f2f68-b42b-4da3-a3d6-bd890ea001a9
+Probe: enter thread loop for 10.16.0.124:8888.router-lifecycle
+RouterLifecycleProbe: started
+10.16.0.124:8888 GC:  data source: 10.16.0.124:8888.dataSource turn on probe 10.16.0.124:8888.router-lifecycle
+10.16.0.124:8888 GC: Setup DataSource: DataSource: 10.16.0.124:8888.dataSource for [10.16.0.124:8888.router-lifecycle]
+10.16.0.124:8888 GC: Starting Local Controllers
+10.16.0.124:8888 GC:  does LocalController localhost:10000 already exist
+localControllerURI: http://localhost:10000
+10.16.0.124:8888 GC:  does LocalController 10.16.0.123:10000 already exist
+localControllerURI: http://10.16.0.123:10000
+10.16.0.124:8888 GC:  does LocalController 10.16.0.181:10000 already exist
+10.16.0.124:8888 GC:  does LocalController 10.16.0.161:10000 already exist
+10.16.0.124:8888 GC:  does LocalController 10.16.0.187:10000 already exist
+10.16.0.124:8888 GC:  does LocalController 10.16.0.146:10000 already exist
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+localControllerURI: http://10.16.0.187:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+localControllerURI: http://10.16.0.146:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+localControllerURI: http://10.16.0.161:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+localControllerURI: http://vlsp-vm1.lan:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Starting process [ssh, -n, vlsp-vm1@10.16.0.146, cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController 10.16.0.124 8888, 10.16.0.146, 10000]
+10.16.0.124:8888 GC: Starting process [ssh, -n, vlsp-vm1@10.16.0.123, cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController 10.16.0.124 8888, 10.16.0.123, 10000]
+10.16.0.124:8888 GC: Starting process [ssh, -n, vlsp-vm1@10.16.0.161, cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController 10.16.0.124 8888, 10.16.0.161, 10000]
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Starting process [ssh, -n, vlsp-vm1@10.16.0.181, cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController 10.16.0.124 8888, 10.16.0.181, 10000]
+10.16.0.124:8888 GC: Starting process [java, -classpath, .:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar:, usr.localcontroller.LocalController, localhost, 10000]
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Starting process [ssh, -n, vlsp-vm1@10.16.0.187, cd VLSP ; export CLASSPATH=.:/home/vlsp-vm1/VLSP/libs/aggregator-0.3.jar:/home/vlsp-vm1/VLSP/libs/concurrentlinkedhashmap-lru-1.3.2.jar:/home/vlsp-vm1/VLSP/libs/IKMS-client.jar:/home/vlsp-vm1/VLSP/libs/Logger-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/monitoring-0.7.1.jar:/home/vlsp-vm1/VLSP/libs/rabbitmq-client.jar:/home/vlsp-vm1/VLSP/libs/restconsole-0.1.0.jar:/home/vlsp-vm1/VLSP/libs/resty-0.3.1.jar:/home/vlsp-vm1/VLSP/libs/rgclibsource.jar:/home/vlsp-vm1/VLSP/libs/rgcmathfunctions.jar:/home/vlsp-vm1/VLSP/libs/rgcprobdistributions.jar:/home/vlsp-vm1/VLSP/libs/rgcxmlparse.jar:/home/vlsp-vm1/VLSP/libs/simple-4.1.21.jar:/home/vlsp-vm1/VLSP/libs/timeindex-20160723.jar: ; java usr.localcontroller.LocalController 10.16.0.124 8888, 10.16.0.187, 10000]
+stdout localhost:10000 Probe: ID = 67478d3a-845f-4080-a699-583d801e7eaa
+stdout localhost:10000 localhost:10000 LC: Added probe: name:localhost:10000.hostInfo	dataRate:720	lastMeasurementTime:null	active:false	on:false
+stdout localhost:10000 attributes:
+stdout localhost:10000 	- 0: Name: STRING: name
+stdout localhost:10000 	- 1: cpu-user: FLOAT: percent
+stdout localhost:10000 	- 2: cpu-sys: FLOAT: percent
+stdout localhost:10000 	- 3: cpu-idle: FLOAT: percent
+stdout localhost:10000 	- 4: load-average: FLOAT: percent
+stdout localhost:10000 	- 5: mem-used: INTEGER: Mb
+stdout localhost:10000 	- 6: mem-free: INTEGER: Mb
+stdout localhost:10000 	- 7: mem-total: INTEGER: Mb
+stdout localhost:10000 	- 8: net-stats: TABLE: _TABLE_
+stdout localhost:10000 
+stdout localhost:10000 localhost:10000 LC: localhost/127.0.0.1:10000 Starting.
+10.16.0.124:8888 GC: Checking existence of local Controllers
+10.16.0.124:8888 GC: Trying to make connection to localhost 10000
+localControllerURI: http://localhost:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+stdout localhost:10000 Got alive message from global controller.
+stdout localhost:10000 Sending to 10.16.0.124:8888
+stdout localhost:10000 globalControllerURI: http://10.16.0.124:8888
+[42m[37mLC response: {"msg":"Ping from global controller received.","success":true}[0m
+[46m[37mLC call: ROUTER_CONFIG %3CRouterOptions%3E+++%3C%21--+++++%3COutput%3E+++++++++%3CFileName%3E[0m
+[42m[37mLC response: {"msg":"Router Config String received","success":true}[0m
+10.16.0.124:8888 GC: Setting  monitoring address: /10.16.0.124:8997 timeout: 1
+[46m[37mLC call: MONITORING_START 10.16.0.124 8997 1[0m
+stdout localhost:10000 localhost:10000 LC: startMonitoring to /10.16.0.124:8997
+stdout localhost:10000 Probe: enter thread loop for localhost:10000.hostInfo
+stdout localhost:10000 localhost:10000 LC:  data source: localhost:10000.dataSource turn on probe localhost:10000.hostInfo
+[42m[37mLC response: {"response":"Monitoring Started","success":true}[0m
+10.16.0.124:8888 GC: Trying to make connection to 10.16.0.123 10000
+localControllerURI: http://10.16.0.123:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Trying to make connection to 10.16.0.146 10000
+localControllerURI: http://10.16.0.146:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Trying to make connection to 10.16.0.187 10000
+localControllerURI: http://10.16.0.187:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Trying to make connection to 10.16.0.161 10000
+localControllerURI: http://10.16.0.161:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Trying to make connection to 10.16.0.181 10000
+localControllerURI: http://vlsp-vm1.lan:10000
+[46m[37mLC call: CHECK_LOCAL_CONTROLLER 10.16.0.124 8888[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: All LocalControllers connected after 1 tries
+10.16.0.124:8888 GC: SHUTDOWN CALLED!
+10.16.0.124:8888 GC:  data source: 10.16.0.124:8888.dataSource turn off probe 10.16.0.124:8888.router-lifecycle
+RouterLifecycleProbe: stopped
+Probe: exit thread loop for 10.16.0.124:8888.router-lifecycle
+10.16.0.124:8888 GC: Stopping all controllers
+localControllerURI: http://localhost:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@63e31ee
+[46m[37mLC call: SHUT_DOWN[0m
+stdout localhost:10000 localhost:10000 LC: Local controller localhost:10000 got shutdown message from global controller.
+stdout localhost:10000 localhost:10000 LC: Stopping all running routers
+stdout localhost:10000 localhost:10000 LC:  data source: localhost:10000.dataSource turn off probe localhost:10000.hostInfo
+stdout localhost:10000 AbstractProbe: localhost:10000.hostInfo: turned off
+stdout localhost:10000 Probe: exit thread loop for localhost:10000.hostInfo
+stdout localhost:10000 localhost:10000 LC: Stopping process wrappers
+stdout localhost:10000 localhost:10000 LC: Stopping global controller interactor
+stdout localhost:10000 localhost:10000 LC: Stopping console
+stdout localhost:10000 localhost:10000 LC: localhost/127.0.0.1:10000 Stopping.
+[42m[37mLC response: {"msg":"SHUTDOWN","success":true}[0m
+localControllerURI: http://10.16.0.123:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@68fb2c38
+[46m[37mLC call: SHUT_DOWN[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+localControllerURI: http://10.16.0.146:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@567d299b
+[46m[37mLC call: SHUT_DOWN[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+localControllerURI: http://10.16.0.187:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@2eafffde
+[46m[37mLC call: SHUT_DOWN[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+localControllerURI: http://10.16.0.161:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@59690aa4
+[46m[37mLC call: SHUT_DOWN[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+localControllerURI: http://vlsp-vm1.lan:10000
+10.16.0.124:8888 GC: Shutdown LocalController usr.interactor.LocalControllerInteractor@6842775d
+[46m[37mLC call: SHUT_DOWN[0m
+[31mLC fail IOException: Conexão recusada (Connection refused)[0m
+10.16.0.124:8888 GC: Stop messages sent to all controllers
+10.16.0.124:8888 GC: Stopping process wrappers
+10.16.0.124:8888 GC: Stopping console

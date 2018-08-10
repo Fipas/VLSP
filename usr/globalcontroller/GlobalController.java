@@ -2806,7 +2806,7 @@ public class GlobalController implements Lifecycle, ComponentController, EventDe
         }
 
         try {
-            Thread.sleep(15000);
+            Thread.sleep(4000);
             executor.shutdown();
             executor.awaitTermination(1, TimeUnit.SECONDS);
         } catch (InterruptedException e) {
