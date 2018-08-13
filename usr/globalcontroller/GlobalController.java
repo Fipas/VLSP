@@ -2914,10 +2914,9 @@ public class GlobalController implements Lifecycle, ComponentController, EventDe
                         Logger.getLogger("log").logln(USR.STDOUT, leadin() + "Trying to make connection to "
                                                       + lcInfo.getName() + " " + lcInfo.getPort());
                         inter = new LocalControllerInteractor(lcInfo);
-
+                        boolean connected = inter.checkLocalController(myHostInfo_);
                         localControllers_.add(inter);
                         interactorMap_.put(lcInfo, inter);
-                        boolean connected = inter.checkLocalController(myHostInfo_);
 
                         if (!connected) {
                             Logger.getLogger("log").logln(USR.ERROR, leadin() + "Cannot interact with LocalController " + lcInfo);
