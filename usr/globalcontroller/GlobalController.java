@@ -2855,8 +2855,11 @@ public class GlobalController implements Lifecycle, ComponentController, EventDe
             }
 
             String procName = lh.getName() + ":" + lh.getPort();
-            childNames_.add(procName);
-            childProcessWrappers_.put(procName, new ProcessWrapper(child, procName));
+
+            synchronized(this) {
+                childNames_.add(procName);
+                childProcessWrappers_.put(procName, new ProcessWrapper(child, procName));
+            }
 
             try {
                 Thread.sleep(100); // Simple wait is to ensure controllers start up
